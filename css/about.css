@@ -1,0 +1,66 @@
+/* start banner */
+.about-banner {
+  margin-top: 6rem;
+  background-color: rgba(109, 117, 143, 1);
+}
+.about-banner h1 {
+  font-weight: 800;
+  font-size: 2.5rem;
+}
+@media (max-width: 768px) {
+  .about-banner h1 {
+    font-size: 1.9rem;
+  }
+}
+@media (max-width: 600px) {
+  .about-banner h1 {
+    font-size: 1.1rem;
+  }
+}
+/* start info */
+.info-img {
+  height: 500px;
+  background-color: red;
+}
+.info-img img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+.info-content .title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: rgba(109, 117, 143, 1);
+}
+
+.info-content .desc {
+  font-size: 18px;
+  font-weight: 500;
+  color: rgba(109, 117, 143, 1);
+  line-height: 1.5rem;
+}
+@media (max-width: 400px) {
+  .info-content .desc {
+    font-size: 1rem;
+  }
+}
+/* start education */
+
+.education .line img {
+  object-fit: cover;
+}
+.education .content span {
+  font-size: 14px;
+  font-weight: 700;
+}
+.education .content .title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: rgba(109, 117, 143, 1);
+}
+.education .content .desc {
+  font-size: 18px;
+  font-weight: 500;
+  color: rgba(109, 117, 143, 1);
+  line-height: 1.5rem;
+}
