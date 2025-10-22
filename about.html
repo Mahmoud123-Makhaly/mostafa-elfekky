@@ -113,11 +113,21 @@
               type="search"
               placeholder="البحث عن .."
               aria-label="Search"
+              id="search-input"
             />
           </form>
         </div>
       </div>
     </nav>
+    <!-- Add this after the navbar in home.html -->
+    <div
+      id="searchResults"
+      class="search-results-container d-none position-absolute w-100 bg-white shadow"
+    ></div>
+    <div
+      id="searchResults"
+      class="search-results-container d-none position-absolute w-100 bg-white shadow"
+    ></div>
     <!-- start banner -->
     <div class="about-banner py-4 py-lg-5 position-relative overflow-hidden">
       <h1 class="text-center text-white">
@@ -181,33 +191,68 @@
     <div class="education py-0 py-lg-5 mt-lg-4 pb-4">
       <div class="container">
         <div class="line mb-5">
-          <img src="images/about/line.svg" class="w-100" alt="line" />
-        </div>
-        <div class="row g-3">
-          <div class="col-lg-5">
-            <div class="img-container">
-              <img src="images/about/mustafa.jpg" class="w-100" alt="mustafa" />
+          <div class="timeline-container">
+            <div class="timeline">
+              <div class="timeline-item active" data-year="1960">
+                <div class="year">1960</div>
+                <div class="marker"></div>
+              </div>
+              <div class="timeline-item" data-year="1970">
+                <div class="year">1970</div>
+                <div class="marker"></div>
+              </div>
+              <div class="timeline-item" data-year="1980">
+                <div class="year">1980</div>
+                <div class="marker"></div>
+              </div>
+              <div class="timeline-item" data-year="1990">
+                <div class="year">1990</div>
+                <div class="marker"></div>
+              </div>
+              <div class="timeline-item" data-year="2000">
+                <div class="year">2000</div>
+                <div class="marker"></div>
+              </div>
+              <div class="timeline-item" data-year="2010">
+                <div class="year">2010</div>
+                <div class="marker"></div>
+              </div>
+              <div class="timeline-item" data-year="2025">
+                <div class="year">2025</div>
+                <div class="marker"></div>
+              </div>
             </div>
           </div>
-          <div class="col-lg-7">
-            <div class="content">
-              <span>1960</span>
-              <h2 class="title mt-0 mt-lg-3 mb-3 mb-lg-4">
-                تعليم مصطفى الفقي في جامعة لندن
-              </h2>
-              <p class="desc mb-3 mb-lg-4">
-                عربى،هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم
-                توليد هذا النص من مولد النص العربى، هذا النص هو مثال لنص يمكن أن
-                يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص
-                العربى،هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد
-                تم توليد هذا النص
-              </p>
-              <p class="desc">
-                ذا النص من مولد النص العربى، هذا النص هو مثال لنص يمكن أن يستبدل
-                في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى،هذا
-                النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا
-                النص
-              </p>
+          <div class="row g-3">
+            <div class="col-lg-5">
+              <div class="img-container">
+                <img
+                  src="images/about/mustafa.jpg"
+                  class="w-100"
+                  alt="mustafa"
+                />
+              </div>
+            </div>
+            <div class="col-lg-7">
+              <div class="content">
+                <span>1960</span>
+                <h2 class="title mt-0 mt-lg-3 mb-3 mb-lg-4">
+                  تعليم مصطفى الفقي في جامعة لندن
+                </h2>
+                <p class="desc mb-3 mb-lg-4">
+                  عربى،هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد
+                  تم توليد هذا النص من مولد النص العربى، هذا النص هو مثال لنص
+                  يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد
+                  النص العربى،هذا النص هو مثال لنص يمكن أن يستبدل في نفس
+                  المساحة، لقد تم توليد هذا النص
+                </p>
+                <p class="desc">
+                  ذا النص من مولد النص العربى، هذا النص هو مثال لنص يمكن أن
+                  يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص
+                  العربى،هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد
+                  تم توليد هذا النص
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -293,5 +338,6 @@
     <script src="js/bootstrap.bundle.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/about.js"></script>
   </body>
 </html>

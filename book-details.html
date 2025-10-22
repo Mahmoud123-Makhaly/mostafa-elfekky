@@ -20,7 +20,8 @@
   </head>
   <body>
     <!-- start navbar -->
-   <nav class="navbar navbar-expand-xl">
+    <!-- start navbar -->
+    <nav class="navbar navbar-expand-xl">
       <div class="container">
         <a
           class="navbar-brand ms-5 fw-bold text-white position-relative"
@@ -99,7 +100,9 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="programmes.html">الصحافة</a>
+              <a class="nav-link" aria-current="page" href="programmes.html"
+                >الصحافة</a
+              >
             </li>
           </ul>
           <form class="d-flex nav-form position-relative">
@@ -111,11 +114,21 @@
               type="search"
               placeholder="البحث عن .."
               aria-label="Search"
+              id="search-input"
             />
           </form>
         </div>
       </div>
     </nav>
+    <!-- Add this after the navbar in home.html -->
+    <div
+      id="searchResults"
+      class="search-results-container d-none position-absolute w-100 bg-white shadow"
+    ></div>
+    <div
+      id="searchResults"
+      class="search-results-container d-none position-absolute w-100 bg-white shadow"
+    ></div>
     <!-- start banner section -->
 
     <div class="books-banner py-4 py-lg-5 position-relative overflow-hidden">

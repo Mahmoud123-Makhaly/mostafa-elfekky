@@ -20,7 +20,8 @@
   </head>
   <body>
     <!-- start navbar -->
-   <nav class="navbar navbar-expand-xl">
+
+    <nav class="navbar navbar-expand-xl">
       <div class="container">
         <a
           class="navbar-brand ms-5 fw-bold text-white position-relative"
@@ -99,7 +100,9 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="programmes.html">الصحافة</a>
+              <a class="nav-link" aria-current="page" href="programmes.html"
+                >الصحافة</a
+              >
             </li>
           </ul>
           <form class="d-flex nav-form position-relative">
@@ -111,11 +114,21 @@
               type="search"
               placeholder="البحث عن .."
               aria-label="Search"
+              id="search-input"
             />
           </form>
         </div>
       </div>
     </nav>
+    <!-- Add this after the navbar in home.html -->
+    <div
+      id="searchResults"
+      class="search-results-container d-none position-absolute w-100 bg-white shadow"
+    ></div>
+    <div
+      id="searchResults"
+      class="search-results-container d-none position-absolute w-100 bg-white shadow"
+    ></div>
     <!-- start banner section -->
 
     <div class="articles-banner py-4 py-lg-5 position-relative overflow-hidden">
@@ -174,158 +187,46 @@
       </div>
     </div>
 
-    <!-- start  new articles -->
+    <!-- start new articles -->
     <div class="new-articles pb-lg-5">
       <div class="container">
         <h2 class="fw-bold text-center head-title">المقالات</h2>
-        <div class="line mt-3 pb-3 pb-lg-5">
-          <img src="images/about/line.svg" class="w-100" alt="line" />
+        <div class="line mt-3 ">
+          <div class="timeline-container">
+            <div class="timeline">
+              <div class="timeline-item" data-year="1960">
+                <div class="year">1960</div>
+                <div class="marker"></div>
+              </div>
+              <div class="timeline-item" data-year="1970">
+                <div class="year">1970</div>
+                <div class="marker"></div>
+              </div>
+              <div class="timeline-item" data-year="1980">
+                <div class="year">1980</div>
+                <div class="marker"></div>
+              </div>
+              <div class="timeline-item" data-year="1990">
+                <div class="year">1990</div>
+                <div class="marker"></div>
+              </div>
+              <div class="timeline-item" data-year="2000">
+                <div class="year">2000</div>
+                <div class="marker"></div>
+              </div>
+              <div class="timeline-item" data-year="2010">
+                <div class="year">2010</div>
+                <div class="marker"></div>
+              </div>
+              <div class="timeline-item" data-year="2025">
+                <div class="year">2025</div>
+                <div class="marker"></div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="row g-3">
-          <div class="col-md-6 col-lg-4">
-            <div class="card position-relative">
-              <img src="images/home/img1.jpg" class="card-img-top" alt="img1" />
-              <div class="card-body">
-                <h5 class="card-title">أحداث فاصلة في صراعات الشرق الأوسط</h5>
-                <p class="card-text">
-                  إن هناك دلالات متميزة ومختلفة لطبيعة ذلك الصراع المزمن
-                  والمواقف الدولية والإقليمية منه
-                </p>
-                <div
-                  class="pt-1 d-flex justify-content-between align-items-center"
-                >
-                  <h3>10 ديسمبر 2024</h3>
-                  <a
-                    href="#"
-                    class="btn d-flex align-items-center gap-1 py-2 rounded-3"
-                  >
-                    <i class="fa-solid fa-arrow-left"></i>
-                  </a>
-                </div>
-              </div>
-              <span class="position-absolute Badge">السياسة</span>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="card position-relative">
-              <img src="images/home/img2.jpg" class="card-img-top" alt="img1" />
-              <div class="card-body">
-                <h5 class="card-title">أحداث فاصلة في صراعات الشرق الأوسط</h5>
-                <p class="card-text">
-                  إن هناك دلالات متميزة ومختلفة لطبيعة ذلك الصراع المزمن
-                  والمواقف الدولية والإقليمية منه
-                </p>
-                <div
-                  class="pt-1 d-flex justify-content-between align-items-center"
-                >
-                  <h3>10 ديسمبر 2024</h3>
-                  <a
-                    href="#"
-                    class="btn d-flex align-items-center gap-1 py-2 rounded-3"
-                  >
-                    <i class="fa-solid fa-arrow-left"></i>
-                  </a>
-                </div>
-              </div>
-              <span class="position-absolute Badge">السياسة</span>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="card position-relative">
-              <img src="images/home/img3.jpg" class="card-img-top" alt="img1" />
-              <div class="card-body">
-                <h5 class="card-title">أحداث فاصلة في صراعات الشرق الأوسط</h5>
-                <p class="card-text">
-                  إن هناك دلالات متميزة ومختلفة لطبيعة ذلك الصراع المزمن
-                  والمواقف الدولية والإقليمية منه
-                </p>
-                <div
-                  class="pt-1 d-flex justify-content-between align-items-center"
-                >
-                  <h3>10 ديسمبر 2024</h3>
-                  <a
-                    href="#"
-                    class="btn d-flex align-items-center gap-1 py-2 rounded-3"
-                  >
-                    <i class="fa-solid fa-arrow-left"></i>
-                  </a>
-                </div>
-              </div>
-              <span class="position-absolute Badge">السياسة</span>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="card position-relative">
-              <img src="images/home/img4.jpg" class="card-img-top" alt="img1" />
-              <div class="card-body">
-                <h5 class="card-title">أحداث فاصلة في صراعات الشرق الأوسط</h5>
-                <p class="card-text">
-                  إن هناك دلالات متميزة ومختلفة لطبيعة ذلك الصراع المزمن
-                  والمواقف الدولية والإقليمية منه
-                </p>
-                <div
-                  class="pt-1 d-flex justify-content-between align-items-center"
-                >
-                  <h3>10 ديسمبر 2024</h3>
-                  <a
-                    href="#"
-                    class="btn d-flex align-items-center gap-1 py-2 rounded-3"
-                  >
-                    <i class="fa-solid fa-arrow-left"></i>
-                  </a>
-                </div>
-              </div>
-              <span class="position-absolute Badge">السياسة</span>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="card position-relative">
-              <img src="images/home/img5.jpg" class="card-img-top" alt="img1" />
-              <div class="card-body">
-                <h5 class="card-title">أحداث فاصلة في صراعات الشرق الأوسط</h5>
-                <p class="card-text">
-                  إن هناك دلالات متميزة ومختلفة لطبيعة ذلك الصراع المزمن
-                  والمواقف الدولية والإقليمية منه
-                </p>
-                <div
-                  class="pt-1 d-flex justify-content-between align-items-center"
-                >
-                  <h3>10 ديسمبر 2024</h3>
-                  <a
-                    href="#"
-                    class="btn d-flex align-items-center gap-1 py-2 rounded-3"
-                  >
-                    <i class="fa-solid fa-arrow-left"></i>
-                  </a>
-                </div>
-              </div>
-              <span class="position-absolute Badge">السياسة</span>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="card position-relative">
-              <img src="images/home/img6.jpg" class="card-img-top" alt="img1" />
-              <div class="card-body">
-                <h5 class="card-title">أحداث فاصلة في صراعات الشرق الأوسط</h5>
-                <p class="card-text">
-                  إن هناك دلالات متميزة ومختلفة لطبيعة ذلك الصراع المزمن
-                  والمواقف الدولية والإقليمية منه
-                </p>
-                <div
-                  class="pt-1 d-flex justify-content-between align-items-center"
-                >
-                  <h3>10 ديسمبر 2024</h3>
-                  <a
-                    href="#"
-                    class="btn d-flex align-items-center gap-1 py-2 rounded-3"
-                  >
-                    <i class="fa-solid fa-arrow-left"></i>
-                  </a>
-                </div>
-              </div>
-              <span class="position-absolute Badge">السياسة</span>
-            </div>
-          </div>
+        <div class="row g-3" id="articles-container">
+          <!-- Articles will be dynamically inserted here -->
         </div>
       </div>
     </div>
@@ -410,5 +311,6 @@
     <script src="js/bootstrap.bundle.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/articles.js"></script>
   </body>
 </html>

@@ -99,7 +99,9 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="programmes.html">الصحافة</a>
+              <a class="nav-link" aria-current="page" href="programmes.html"
+                >الصحافة</a
+              >
             </li>
           </ul>
           <form class="d-flex nav-form position-relative">
@@ -111,11 +113,17 @@
               type="search"
               placeholder="البحث عن .."
               aria-label="Search"
+              id="search-input"
             />
           </form>
         </div>
       </div>
     </nav>
+    <!-- Add this after the navbar in home.html -->
+    <div
+      id="searchResults"
+      class="search-results-container d-none position-absolute w-100 bg-white shadow"
+    ></div>
     <!-- start banner section -->
 
     <div class="books-banner py-4 py-lg-5 position-relative overflow-hidden">
@@ -159,165 +167,239 @@
     <!-- start  poplar books -->
     <div class="popular-books all-books">
       <div class="container">
-        <div class="row g-4">
-          <div class="col-md-6 col-lg-4">
-            <div class="position-relative book">
-              <img src="images/books/book1.jpg" class="img-fluid" alt="book1" />
-              <div
-                class="layer position-absolute top-0 start-0 end-0 bottom-0 w-100 h-100"
-              >
-                <div class="content">
-                  <h3>دهاليز السياسة</h3>
-                  <p>
-                    يقدم د. مصطفى الفقي خلاصة رؤاه الإنسانية في تلك الشخصيات
-                    التي يستعرضها في كتابه
-                  </p>
-                  <a href="#" class="text-decoration-none">
-                    عرض الكتاب
-                    <i class="fa-solid fa-arrow-left"></i>
-                  </a>
+        <div id="slidesContainer">
+          <div class="slide row g-4">
+            <div class="col-md-6 col-lg-4">
+              <div class="position-relative book">
+                <img
+                  src="images/books/book1.jpg"
+                  class="img-fluid"
+                  alt="book1"
+                />
+                <div
+                  class="layer position-absolute top-0 start-0 end-0 bottom-0 w-100 h-100"
+                >
+                  <div class="content">
+                    <h3>دهاليز السياسة</h3>
+                    <p>
+                      يقدم د. مصطفى الفقي خلاصة رؤاه الإنسانية في تلك الشخصيات
+                      التي يستعرضها في كتابه
+                    </p>
+                    <a href="#" class="text-decoration-none">
+                      عرض الكتاب
+                      <i class="fa-solid fa-arrow-left"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="position-relative book">
+                <img
+                  src="images/books/book3.jpg"
+                  class="img-fluid"
+                  alt="book1"
+                />
+                <div
+                  class="layer position-absolute top-0 start-0 end-0 bottom-0 w-100 h-100"
+                >
+                  <div class="content">
+                    <h3>دهاليز السياسة</h3>
+                    <p>
+                      يقدم د. مصطفى الفقي خلاصة رؤاه الإنسانية في تلك الشخصيات
+                      التي يستعرضها في كتابه
+                    </p>
+                    <a href="#" class="text-decoration-none">
+                      عرض الكتاب
+                      <i class="fa-solid fa-arrow-left"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="position-relative book">
+                <img
+                  src="images/home/book3.jpg"
+                  class="img-fluid"
+                  alt="book1"
+                />
+                <div
+                  class="layer position-absolute top-0 start-0 end-0 bottom-0 w-100 h-100"
+                >
+                  <div class="content">
+                    <h3>دهاليز السياسة</h3>
+                    <p>
+                      يقدم د. مصطفى الفقي خلاصة رؤاه الإنسانية في تلك الشخصيات
+                      التي يستعرضها في كتابه
+                    </p>
+                    <a href="#" class="text-decoration-none">
+                      عرض الكتاب
+                      <i class="fa-solid fa-arrow-left"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="position-relative book">
+                <img
+                  src="images/books/book1.jpg"
+                  class="img-fluid"
+                  alt="book1"
+                />
+                <div
+                  class="layer position-absolute top-0 start-0 end-0 bottom-0 w-100 h-100"
+                >
+                  <div class="content">
+                    <h3>دهاليز السياسة</h3>
+                    <p>
+                      يقدم د. مصطفى الفقي خلاصة رؤاه الإنسانية في تلك الشخصيات
+                      التي يستعرضها في كتابه
+                    </p>
+                    <a href="#" class="text-decoration-none">
+                      عرض الكتاب
+                      <i class="fa-solid fa-arrow-left"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="position-relative book">
+                <img
+                  src="images/books/book3.jpg"
+                  class="img-fluid"
+                  alt="book1"
+                />
+                <div
+                  class="layer position-absolute top-0 start-0 end-0 bottom-0 w-100 h-100"
+                >
+                  <div class="content">
+                    <h3>دهاليز السياسة</h3>
+                    <p>
+                      يقدم د. مصطفى الفقي خلاصة رؤاه الإنسانية في تلك الشخصيات
+                      التي يستعرضها في كتابه
+                    </p>
+                    <a href="#" class="text-decoration-none">
+                      عرض الكتاب
+                      <i class="fa-solid fa-arrow-left"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="position-relative book">
+                <img
+                  src="images/home/book3.jpg"
+                  class="img-fluid"
+                  alt="book1"
+                />
+                <div
+                  class="layer position-absolute top-0 start-0 end-0 bottom-0 w-100 h-100"
+                >
+                  <div class="content">
+                    <h3>دهاليز السياسة</h3>
+                    <p>
+                      يقدم د. مصطفى الفقي خلاصة رؤاه الإنسانية في تلك الشخصيات
+                      التي يستعرضها في كتابه
+                    </p>
+                    <a href="#" class="text-decoration-none">
+                      عرض الكتاب
+                      <i class="fa-solid fa-arrow-left"></i>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="position-relative book">
-              <img src="images/books/book3.jpg" class="img-fluid" alt="book1" />
-              <div
-                class="layer position-absolute top-0 start-0 end-0 bottom-0 w-100 h-100"
-              >
-                <div class="content">
-                  <h3>دهاليز السياسة</h3>
-                  <p>
-                    يقدم د. مصطفى الفقي خلاصة رؤاه الإنسانية في تلك الشخصيات
-                    التي يستعرضها في كتابه
-                  </p>
-                  <a href="#" class="text-decoration-none">
-                    عرض الكتاب
-                    <i class="fa-solid fa-arrow-left"></i>
-                  </a>
+          <div class="slide row g-4">
+            <div class="col-md-6 col-lg-4">
+              <div class="position-relative book">
+                <img
+                  src="images/books/book1.jpg"
+                  class="img-fluid"
+                  alt="book1"
+                />
+                <div
+                  class="layer position-absolute top-0 start-0 end-0 bottom-0 w-100 h-100"
+                >
+                  <div class="content">
+                    <h3>دهاليز السياسة</h3>
+                    <p>
+                      يقدم د. مصطفى الفقي خلاصة رؤاه الإنسانية في تلك الشخصيات
+                      التي يستعرضها في كتابه
+                    </p>
+                    <a href="#" class="text-decoration-none">
+                      عرض الكتاب
+                      <i class="fa-solid fa-arrow-left"></i>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="position-relative book">
-              <img src="images/home/book3.jpg" class="img-fluid" alt="book1" />
-              <div
-                class="layer position-absolute top-0 start-0 end-0 bottom-0 w-100 h-100"
-              >
-                <div class="content">
-                  <h3>دهاليز السياسة</h3>
-                  <p>
-                    يقدم د. مصطفى الفقي خلاصة رؤاه الإنسانية في تلك الشخصيات
-                    التي يستعرضها في كتابه
-                  </p>
-                  <a href="#" class="text-decoration-none">
-                    عرض الكتاب
-                    <i class="fa-solid fa-arrow-left"></i>
-                  </a>
+            <div class="col-md-6 col-lg-4">
+              <div class="position-relative book">
+                <img
+                  src="images/books/book3.jpg"
+                  class="img-fluid"
+                  alt="book1"
+                />
+                <div
+                  class="layer position-absolute top-0 start-0 end-0 bottom-0 w-100 h-100"
+                >
+                  <div class="content">
+                    <h3>دهاليز السياسة</h3>
+                    <p>
+                      يقدم د. مصطفى الفقي خلاصة رؤاه الإنسانية في تلك الشخصيات
+                      التي يستعرضها في كتابه
+                    </p>
+                    <a href="#" class="text-decoration-none">
+                      عرض الكتاب
+                      <i class="fa-solid fa-arrow-left"></i>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="position-relative book">
-              <img src="images/books/book1.jpg" class="img-fluid" alt="book1" />
-              <div
-                class="layer position-absolute top-0 start-0 end-0 bottom-0 w-100 h-100"
-              >
-                <div class="content">
-                  <h3>دهاليز السياسة</h3>
-                  <p>
-                    يقدم د. مصطفى الفقي خلاصة رؤاه الإنسانية في تلك الشخصيات
-                    التي يستعرضها في كتابه
-                  </p>
-                  <a href="#" class="text-decoration-none">
-                    عرض الكتاب
-                    <i class="fa-solid fa-arrow-left"></i>
-                  </a>
+            <div class="col-md-6 col-lg-4">
+              <div class="position-relative book">
+                <img
+                  src="images/home/book3.jpg"
+                  class="img-fluid"
+                  alt="book1"
+                />
+                <div
+                  class="layer position-absolute top-0 start-0 end-0 bottom-0 w-100 h-100"
+                >
+                  <div class="content">
+                    <h3>دهاليز السياسة</h3>
+                    <p>
+                      يقدم د. مصطفى الفقي خلاصة رؤاه الإنسانية في تلك الشخصيات
+                      التي يستعرضها في كتابه
+                    </p>
+                    <a href="#" class="text-decoration-none">
+                      عرض الكتاب
+                      <i class="fa-solid fa-arrow-left"></i>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="position-relative book">
-              <img src="images/books/book3.jpg" class="img-fluid" alt="book1" />
-              <div
-                class="layer position-absolute top-0 start-0 end-0 bottom-0 w-100 h-100"
-              >
-                <div class="content">
-                  <h3>دهاليز السياسة</h3>
-                  <p>
-                    يقدم د. مصطفى الفقي خلاصة رؤاه الإنسانية في تلك الشخصيات
-                    التي يستعرضها في كتابه
-                  </p>
-                  <a href="#" class="text-decoration-none">
-                    عرض الكتاب
-                    <i class="fa-solid fa-arrow-left"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="position-relative book">
-              <img src="images/home/book3.jpg" class="img-fluid" alt="book1" />
-              <div
-                class="layer position-absolute top-0 start-0 end-0 bottom-0 w-100 h-100"
-              >
-                <div class="content">
-                  <h3>دهاليز السياسة</h3>
-                  <p>
-                    يقدم د. مصطفى الفقي خلاصة رؤاه الإنسانية في تلك الشخصيات
-                    التي يستعرضها في كتابه
-                  </p>
-                  <a href="#" class="text-decoration-none">
-                    عرض الكتاب
-                    <i class="fa-solid fa-arrow-left"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
+          
+          
+        
           </div>
         </div>
+
+        <!-- pagination -->
         <div
           class="pagination pt-3 pt-lg-4 pb-0 flex-column flex-lg-row gap-3 d-flex justify-content-between align-items-center"
         >
-          <p>ظهور من 1 الى 10 من المدخلات</p>
-          <nav aria-label="...">
-            <ul class="pagination">
-              <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1">
-                  <i class="fa-solid fa-angles-right"></i>
-                </a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#"
-                  ><i class="fa-solid fa-chevron-right"></i
-                ></a>
-              </li>
-              <li class="page-item"><a class="page-link" href="#">1</a></li>
-              <li class="page-item">
-                <a class="page-link" href="#">2 </a>
-              </li>
-              <li class="page-item active">
-                <a class="page-link" href="#">3</a>
-              </li>
-              <li class="page-item"><a class="page-link" href="#">4</a></li>
-              <li class="page-item"><a class="page-link" href="#">5</a></li>
-
-              <li class="page-item">
-                <a class="page-link" href="#">
-                  <i class="fa-solid fa-chevron-left"></i>
-                </a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">
-                  <i class="fa-solid fa-angles-left"></i>
-                </a>
-              </li>
-            </ul>
+          <p id="pageInfo">ظهور من 1 الى 3 من المدخلات</p>
+          <nav aria-label="pagination">
+            <ul class="pagination" id="paginationList"></ul>
           </nav>
         </div>
       </div>
@@ -565,5 +647,6 @@
     <script src="js/bootstrap.bundle.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/books.js"></script>
   </body>
 </html>

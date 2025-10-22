@@ -19,7 +19,7 @@
   </head>
   <body>
     <!-- start navbar -->
-     <nav class="navbar navbar-expand-xl">
+    <nav class="navbar navbar-expand-xl">
       <div class="container">
         <a
           class="navbar-brand ms-5 fw-bold text-white position-relative"
@@ -98,7 +98,9 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="programmes.html">الصحافة</a>
+              <a class="nav-link" aria-current="page" href="programmes.html"
+                >الصحافة</a
+              >
             </li>
           </ul>
           <form class="d-flex nav-form position-relative">
@@ -110,11 +112,17 @@
               type="search"
               placeholder="البحث عن .."
               aria-label="Search"
+              id="search-input"
             />
           </form>
         </div>
       </div>
     </nav>
+    <!-- Add this after the navbar in home.html -->
+    <div
+      id="searchResults"
+      class="search-results-container d-none position-absolute w-100 bg-white shadow"
+    ></div>
     <!-- start banner section -->
     <div class="banner py-3 py-lg-5">
       <div class="container">
@@ -477,8 +485,14 @@
           <!-- Carousel Item 1 -->
           <div class="item" data-merge="2">
             <div class="position-relative program">
-              <div class="img-container">
-                <img src="images/home/program1.jpg" alt="program1" />
+              <div class="video-container">
+                <!-- Notice we use the embed URL with autoplay and mute set to 0 initially -->
+                <iframe
+                  src="https://www.youtube.com/embed/-wH_hQrzkv4?enablejsapi=1&controls=0&modestbranding=1&rel=0&iv_load_policy=3&playsinline=1"
+                  frameborder="0"
+                  allow="autoplay; encrypted-media"
+                  allowfullscreen
+                ></iframe>
               </div>
               <div class="overlay position-absolute w-100 h-100 top-0 start-0">
                 <div class="content">
@@ -487,7 +501,7 @@
                     التعليق الكامل للدكتور مصطفى الفقي عن علاقة رؤساء مصر بالدين
                   </h2>
                 </div>
-                <div class="icon">
+                <div class="icon play-btn">
                   <i class="fa-solid fa-play"></i>
                 </div>
               </div>
@@ -497,27 +511,39 @@
           <!-- Carousel Item 2 -->
           <div class="item">
             <div class="position-relative program">
-              <div class="img-container">
-                <img src="images/home/program2.jpg" alt="program2" />
+              <div class="video-container">
+                <iframe
+                  src="https://www.youtube.com/embed/-wH_hQrzkv4?enablejsapi=1&controls=0&modestbranding=1&rel=0&iv_load_policy=3&playsinline=1"
+                  frameborder="0"
+                  allow="autoplay; encrypted-media"
+                  allowfullscreen
+                ></iframe>
               </div>
               <div class="overlay position-absolute w-100 h-100 top-0 start-0">
                 <div class="content">
                   <p>يحدث في مصر</p>
                   <h2>
-                    صطفى الفقي يتحدث عن حكم عائلة الأسد لسوريا وخريطة نتنياهو
+                    مصطفى الفقي يتحدث عن حكم عائلة الأسد لسوريا وخريطة نتنياهو
                     لاسرائيل
                   </h2>
                 </div>
-                <div class="icon">
+                <div class="icon play-btn">
                   <i class="fa-solid fa-play"></i>
                 </div>
               </div>
             </div>
           </div>
+
+          <!-- Carousel Item 3 -->
           <div class="item">
             <div class="position-relative program">
-              <div class="img-container">
-                <img src="images/home/program3.jpg" alt="program1" />
+              <div class="video-container">
+                <iframe
+                  src="https://www.youtube.com/embed/-wH_hQrzkv4?enablejsapi=1&controls=0&modestbranding=1&rel=0&iv_load_policy=3&playsinline=1"
+                  frameborder="0"
+                  allow="autoplay; encrypted-media"
+                  allowfullscreen
+                ></iframe>
               </div>
               <div class="overlay position-absolute w-100 h-100 top-0 start-0">
                 <div class="content">
@@ -526,7 +552,7 @@
                     التعليق الكامل للدكتور مصطفى الفقي عن علاقة رؤساء مصر بالدين
                   </h2>
                 </div>
-                <div class="icon">
+                <div class="icon play-btn">
                   <i class="fa-solid fa-play"></i>
                 </div>
               </div>
@@ -646,7 +672,8 @@
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/bootstrap.bundle.js"></script>
     <script src="js/owl.carousel.min.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+    ;
     <script src="js/main.js"></script>
- 
   </body>
 </html>

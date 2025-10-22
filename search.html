@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Article Details</title>
+    <title>نتائج البحث</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -14,9 +14,32 @@
     <link rel="stylesheet" href="css/all.min.css" />
     <link rel="stylesheet" href="./css/owl.carousel.min.css" />
     <link rel="stylesheet" href="./css/owl.theme.default.min.css" />
-
     <link rel="stylesheet" href="css/index.css" />
-    <link rel="stylesheet" href="css/article-details.css" />
+    <style>
+      .search-page {
+        min-height: 100vh;
+      }
+      .result-item {
+        border-bottom: 1px solid #eee;
+        padding: 1.5rem 0;
+      }
+      .search-context {
+        color: #666;
+        line-height: 1.6;
+      }
+      .search-page-link {
+        color: #007bff;
+        text-decoration: none;
+      }
+      mark {
+        background-color: yellow;
+        padding: 0.1em;
+      }
+      .search-query {
+        color: #333;
+        font-weight: bold;
+      }
+    </style>
   </head>
   <body>
     <!-- start navbar -->
@@ -119,88 +142,15 @@
         </div>
       </div>
     </nav>
-    <!-- Add this after the navbar in home.html -->
-    <div
-      id="searchResults"
-      class="search-results-container d-none position-absolute w-100 bg-white shadow"
-    ></div>
-    <!-- start banner section -->
 
-    <div class="articles-banner py-4 py-lg-5 position-relative overflow-hidden">
-      <h1 class="text-center text-white">مقالات السياسي المصري مصطفى الفقي</h1>
-      <img
-        src="images/about/layer.png"
-        alt="layer"
-        class="position-absolute top-0 start-50 translate-middle layer"
-      />
-    </div>
-    <div class="article-details-content py-3 py-lg-5">
+    <div class="search-page bg-white">
       <div class="container">
-        <h1 class="pe-lg-4 mb-lg-4 mb-xl-3">
-          أحداث فاصلة في صراعات الشرق الأوسط
-        </h1>
-        <div class="date d-flex align-items-center gap-3">
-          <div>
-            <i class="fa-solid fa-clock"></i>
-            <span>10 ديسمبر 2024</span>
-          </div>
-          <span class="badge">السياسة</span>
-        </div>
-        <p class="desc mt-3 mt-lg-4">
-          إن هناك دلالات متميزة ومختلفة لطبيعة ذلك الصراع المزمن والمواقف
-          الدولية والإقليمية منه إن هناك دلالات متميزة ومختلفة لطبيعة ذلك الصراع
-          المزمن والمواقف الدولية والإقليمية منه إن هناك دلالات متميزة ومختلفة
-          لطبيعة ذلك الصراع المزمن والمواقف الدولية والإقليمية منهإن هناك دلالات
-          متميزة ومختلفة لطبيعة ذلك الصراع المزمن والمواقف الدولية والإقليمية
-          منه إن هناك دلالات متميزة ومختلفة لطبيعة ذلك الصراع المزمن والمواقف
-          الدولية والإقليمية منهإن هناك دلالات متميزة ومختلفة لطبيعة ذلك الصراع
-          المزمن والمواقف الدولية والإقليمية منهإن هناك دلالات متميزة ومختلفة
-          لطبيعة ذلك الصراع المزمن والمواقف الدولية والإقليمية منه
-        </p>
-        <div class="img-container">
-          <img
-            src="images/articles/fire.jpg"
-            alt="fire"
-            class="w-100 rounded-3"
-          />
-        </div>
-        <p class="desc my-3 my-lg-4">
-          إن هناك دلالات متميزة ومختلفة لطبيعة ذلك الصراع المزمن والمواقف
-          الدولية والإقليمية منه إن هناك دلالات متميزة ومختلفة لطبيعة ذلك الصراع
-          المزمن والمواقف الدولية والإقليمية منه إن هناك دلالات متميزة ومختلفة
-          لطبيعة ذلك الصراع المزمن والمواقف الدولية والإقليمية منهإن هناك دلالات
-          متميزة ومختلفة لطبيعة ذلك الصراع المزمن
-        </p>
-        <p class="desc my-3 my-lg-4">
-          إن هناك دلالات متميزة ومختلفة لطبيعة ذلك الصراع المزمن والمواقف
-          الدولية والإقليمية منه إن هناك دلالات متميزة ومختلفة لطبيعة ذلك الصراع
-          المزمن والمواقف الدولية والإقليمية منه إن هناك دلالات متميزة ومختلفة
-          لطبيعة ذلك الصراع المزمن والمواقف الدولية والإقليمية منهإن هناك دلالات
-          متميزة ومختلفة لطبيعة ذلك الصراع المزمن
-        </p>
-        <p class="desc my-3 my-lg-4">
-          إن هناك دلالات متميزة ومختلفة لطبيعة ذلك الصراع المزمن والمواقف
-          الدولية والإقليمية منه إن هناك دلالات متميزة ومختلفة لطبيعة ذلك الصراع
-          المزمن والمواقف الدولية والإقليمية منه إن هناك دلالات متميزة ومختلفة
-          لطبيعة ذلك الصراع المزمن والمواقف الدولية والإقليمية منهإن هناك دلالات
-          متميزة ومختلفة لطبيعة ذلك الصراع المزمن
-        </p>
-        <p class="desc my-3 my-lg-4">
-          إن هناك دلالات متميزة ومختلفة لطبيعة ذلك الصراع المزمن والمواقف
-          الدولية والإقليمية منه إن هناك دلالات متميزة ومختلفة لطبيعة ذلك الصراع
-          المزمن والمواقف الدولية والإقليمية منه إن هناك دلالات متميزة ومختلفة
-          لطبيعة ذلك الصراع المزمن والمواقف الدولية والإقليمية منهإن هناك دلالات
-          متميزة ومختلفة لطبيعة ذلك الصراع المزمن
-        </p>
-        <p class="desc my-3 my-lg-4">
-          إن هناك دلالات متميزة ومختلفة لطبيعة ذلك الصراع المزمن والمواقف
-          الدولية والإقليمية منه إن هناك دلالات متميزة ومختلفة لطبيعة ذلك الصراع
-          المزمن والمواقف الدولية والإقليمية منه إن هناك دلالات متميزة ومختلفة
-          لطبيعة ذلك الصراع المزمن والمواقف الدولية والإقليمية منهإن هناك دلالات
-          متميزة ومختلفة لطبيعة ذلك الصراع المزمن
-        </p>
+        <h1 class="mb-4">نتائج البحث</h1>
+        <div id="searchQueryDisplay" class="mb-4"></div>
+        <div id="searchResults"></div>
       </div>
     </div>
+
     <!-- start footer -->
     <footer class="pt-5 pb-3">
       <div class="container">
@@ -277,9 +227,65 @@
         </p>
       </div>
     </footer>
+
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/bootstrap.bundle.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/main.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const searchResults = document.getElementById("searchResults");
+        const searchQueryDisplay =
+          document.getElementById("searchQueryDisplay");
+        const results =
+          JSON.parse(sessionStorage.getItem("searchResults")) || [];
+        const searchQuery = sessionStorage.getItem("searchQuery") || "";
+        const searchError = sessionStorage.getItem("searchError");
+
+        // Display the search query
+        if (searchQuery) {
+          if (searchError === "nonArabic") {
+            searchQueryDisplay.innerHTML = `
+                        <p>نتائج البحث عن: <span class="search-query">"${searchQuery}"</span></p>
+                        <p class="error-message">الرجاء استخدام النص العربي للبحث</p>
+                    `;
+          } else {
+            searchQueryDisplay.innerHTML = `<p>نتائج البحث عن: <span class="search-query">"${searchQuery}"</span></p>`;
+          }
+          // Clear the stored data after displaying it
+          sessionStorage.removeItem("searchQuery");
+          sessionStorage.removeItem("searchError");
+        }
+
+        console.log("Results on Search Page:", results);
+
+        if (results.length === 0 || searchError === "nonArabic") {
+          let noDataItem = document.createElement("div");
+          noDataItem.className = "result-item text-center py-5";
+          if (searchError === "nonArabic") {
+            noDataItem.innerHTML = `
+                        <h3>بحث غير مدعوم</h3>
+                        <p class="error-message">الرجاء استخدام النص العربي للبحث</p>
+                        <p>يرجى إدخال كلمات بحث باللغة العربية فقط</p>
+                    `;
+          } else {
+            noDataItem.innerHTML = `
+                        <h3>لا توجد نتائج</h3>
+                        <p>حاول استخدام مصطلحات بحث مختلفة باللغة العربية</p>
+                    `;
+          }
+          searchResults.appendChild(noDataItem);
+        } else {
+          results.forEach((result) => {
+            let item = document.createElement("div");
+            item.className = "result-item";
+            item.innerHTML = `
+                        <h4 class="mb-2">${result.title}</h4>
+                        <p class="search-context mb-2">${result.context}</p>
+                        <a class="search-page-link" href="${result.url}">${result.url}</a>
+                    `;
+            searchResults.appendChild(item);
+          });
+        }
+      });
+    </script>
   </body>
 </html>
