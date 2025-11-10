@@ -1,3 +1,4 @@
+
 // home page logic
 // navbar scroll
 const navbar = document.querySelector(".navbar");

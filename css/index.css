@@ -183,8 +183,11 @@ body {
   background-color: #6d758f !important;
   cursor: pointer;
   font-size: 14px;
+  transition: 0.3s all ease;
 }
-
+.banner-img .content .btn:hover {
+  background-color: #444a61 !important;
+}
 .banner-img .content .btn i {
   font-size: 10px;
 }
@@ -262,6 +265,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: 0.3s all ease;
+}
+.new-articles .card a:hover {
+  background-color: #444a61;
 }
 .new-articles .card .Badge {
   background-color: #444a61;

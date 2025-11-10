@@ -95,33 +95,29 @@
   flex: 1;
   bottom: 1rem;
   gap: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
-.timeline-item.active {
-  .year {
-    font-size: 20px;
-    font-weight: 700;
-  }
-  .marker {
-    width: 13px;
-    height: 13px;
-    bottom: 9px;
-    position: relative;
-  }
+
+.timeline-item.active .year {
+  font-size: 20px;
+  font-weight: 700;
+  color: #444a61;
+  transform: translateY(-2px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
-@media (max-width: 768px) {
-  .timeline-item.active {
-    .year {
-      bottom: 15px;
-    }
-    .marker {
-      width: 13px;
-      height: 13px;
-      bottom: 9px;
-      position: relative;
-      left: 3px;
-    }
-  }
+
+.timeline-item.active .marker {
+  width: 16px;
+  height: 16px;
+  background: #444a61;
+  box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.2);
+  transform: scale(1.3);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  bottom: 6px;
 }
+
 .year {
   font-size: 15px;
   font-weight: 300;
@@ -139,11 +135,41 @@
   background: #444a61;
   box-shadow: 0 0 0 3px #444a61;
   margin-bottom: 6px;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(63, 66, 70, 1);
   cursor: pointer;
+  position: relative;
+  bottom: -4px;
+}
+
+/* Hover effects for better interaction */
+.timeline-item:hover .marker {
+  transform: scale(1.1);
+  background: #444a61;
+  box-shadow: 0 0 0 3px rgba(63, 66, 70, 0.3);
+}
+
+.timeline-item:hover .year {
+  color: #444a61;
+  font-weight: 500;
 }
 
 @media (max-width: 768px) {
+  .timeline-item.active .year {
+    bottom: 15px;
+    font-size: 18px;
+    font-weight: 700;
+    left: 5px;
+  }
+
+  .timeline-item.active .marker {
+    width: 14px;
+    height: 14px;
+    bottom: 4px;
+    position: relative;
+    left: 2px;
+    transform: scale(1.2);
+  }
+
   .timeline {
     flex-direction: column;
     align-items: flex-start;
@@ -163,6 +189,8 @@
     flex-direction: row;
     margin-bottom: 30px;
     width: 100%;
+    align-items: center;
+    bottom: 0;
   }
 
   .year {
@@ -173,11 +201,30 @@
     font-weight: normal;
     position: relative;
     bottom: 5px;
+    left: 0;
   }
 
   .marker {
     margin-bottom: 0;
     margin-right: 20px;
     order: -1;
+    position: relative;
+    bottom: 0;
   }
+
+  /* Mobile hover effects */
+  .timeline-item:hover .marker {
+    transform: scale(1.05);
+  }
+}
+
+/* Smooth transition for content changes */
+.education .img-container img {
+  transition: opacity 0.3s ease;
+}
+
+.education .content span,
+.education .content .title,
+.education .content .desc {
+  transition: color 0.3s ease;
 }
