@@ -21,258 +21,257 @@ $(document).ready(function () {
 
   // Articles data for each year
   const articlesData = {
-    1960: [
+    2013: [
       {
         id: 1,
         image: "images/home/img1.jpg",
-        title: "أحداث فاصلة في صراعات الشرق الأوسط 1960",
-        text: "إن هناك دلالات متميزة ومختلفة لطبيعة ذلك الصراع المزمن والمواقف الدولية والإقليمية منه في عام 1960.",
-        date: "10 ديسمبر 1960",
+        title: "أوهام صهيونية . وأحلام عبثية",
+        text: `(دولتك يا إسرائيل من الفرات إلى النيل) ليست هذه عبارة جديدة، بل قد
+ترددت منذ عدة عقود عندما تحدث غلاة الصهاينة ...`,
+        date: "25 اغسطس 2013",
         category: "السياسة",
+        slug: "article-details.html?id=1",
       },
       {
         id: 2,
         image: "images/home/img2.jpg",
-        title: "التطورات الاقتصادية في العالم العربي 1960",
-        text: "شهد العام 1960 تطورات اقتصادية مهمة في المنطقة العربية مع تغير في السياسات الاقتصادية العالمية.",
-        date: "5 نوفمبر 1960",
-        category: "الاقتصاد",
+        title: `المجاعة الفلسطينية ونظرية المؤامرة`,
+        text: `يتقمصني في الشهور الأخيرة شعور داخلي عميق بالأسى بل يمتد الأمر
+ليراودني في الأسابيع الماضية ...`,
+        date: " 8 سبتمبر 2013",
+        category: "السياسة",
+        slug: "article-details.html?id=2",
       },
       {
         id: 3,
-        image: "images/home/img3.jpg",
-        title: "مستقبل الطاقة المتجددة في المنطقة 1960",
-        text: "مع تزايد الاهتمام بالطاقة المتجددة، تشهد المنطقة استثمارات كبيرة في هذا القطاع الواعد خلال 1960.",
-        date: "20 أكتوبر 1960",
-        category: "الطاقة",
-      },
-      {
-        id: 4,
-        image: "images/home/img4.jpg",
-        title: "التعليم في العالم العربي 1960",
-        text: "شهد عام 1960 تطورات كبيرة في مجال التعليم في العالم العربي مع افتتاح العديد من الجامعات الجديدة.",
-        date: "15 سبتمبر 1960",
-        category: "التعليم",
-      },
-      {
-        id: 5,
-        image: "images/home/img5.jpg",
-        title: "العلاقات الدولية 1960",
-        text: "شهد عام 1960 تحولات كبيرة في العلاقات الدولية مع تغير التحالفات والاستراتيجيات العالمية.",
-        date: "8 أغسطس 1960",
-        category: "العلاقات الدولية",
-      },
-      {
-        id: 6,
         image: "images/home/img1.jpg",
-        title: "الثقافة والفنون 1960",
-        text: "شهد عام 1960 نهضة ثقافية وفنية في العالم العربي مع ظهور العديد من المواهب الجديدة.",
-        date: "22 يوليو 1960",
+        title: `كيف يفكر حكام إسرائيل؟`,
+        text: `اتسمت تصرفات اليهود تاريخيًا بقدر كبير من المهارة وقسط وافر من الدهاء،
+وظل الأمر كذلك في ...`,
+        date: "22  سبتمبر 2013",
         category: "الثقافة",
+        slug: "article-details.html?id=3",
       },
     ],
-    1970: [
-    
+    2015: [
       {
         id: 4,
         image: "images/home/img2.jpg",
-        title: "التعليم في العالم العربي 1960",
-        text: "شهد عام 1960 تطورات كبيرة في مجال التعليم في العالم العربي مع افتتاح العديد من الجامعات الجديدة.",
-        date: "15 سبتمبر 1960",
-        category: "التعليم",
+        title: "مزاج الأمم وشخصية الشعوب",
+        text: `عندما كنت أرقب ذلك التجمع غير المسبوق من قادة الدول وممثلي
+شعوبها في منتجع شرم الشيخ ... `,
+        date: " 20 اكتوبر 2015",
+        category: "السياسة",
+        slug: "article-details.html?id=4",
       },
       {
         id: 5,
         image: "images/home/img1.jpg",
-        title: "العلاقات الدولية 1960",
-        text: "شهد عام 1960 تحولات كبيرة في العلاقات الدولية مع تغير التحالفات والاستراتيجيات العالمية.",
-        date: "8 أغسطس 1960",
-        category: "العلاقات الدولية",
+        title: `المقاومة والمفاوضة`,
+        text: `وقر في ذهن الكثيرين أن الصراع بين قوتين إما أن يرتكز على المعارك
+المسلحة أو المفاوضات ...`,
+        date: `6 اكتوبر 2015`,
+        category: "السياسة",
+        slug: "article-details.html?id=5",
       },
       {
         id: 6,
         image: "images/home/img5.jpg",
-        title: "الثقافة والفنون 1960",
-        text: "شهد عام 1960 نهضة ثقافية وفنية في العالم العربي مع ظهور العديد من المواهب الجديدة.",
-        date: "22 يوليو 1960",
-        category: "الثقافة",
+        title: `الإقليم العربي بين قرنين`,
+        text: `ليس من شكٍ في أن السنوات الأخيرة من القرن العشرين كانت حافلة
+بالأحداث الهامة والتحولات ...`,
+        date: `15 اكتوبر 2015`,
+        category: "السياسة",
+        slug: "article-details.html?id=6",
       },
     ],
-    1980: [
-      
+    2017: [
       {
-        id: 2,
+        id: 7,
         image: "images/home/img3.jpg",
-        title: "التطورات الاقتصادية في العالم العربي 1960",
-        text: "شهد العام 1960 تطورات اقتصادية مهمة في المنطقة العربية مع تغير في السياسات الاقتصادية العالمية.",
-        date: "5 نوفمبر 1960",
-        category: "الاقتصاد",
+        title: `نحو سياسة عربية مختلفة`,
+        text: `يستبد بي شعور يعادوني من وقت لآخر خصوصًا في أوقات
+الأزمات الإقليمية ...`,
+        date: " 3 نوفمبر  2017",
+        category: "السياسة",
+        slug: "article-details.html?id=7",
       },
- 
+
       {
-        id: 4,
+        id: 8,
         image: "images/home/img1.jpg",
-        title: "التعليم في العالم العربي 1960",
-        text: "شهد عام 1960 تطورات كبيرة في مجال التعليم في العالم العربي مع افتتاح العديد من الجامعات الجديدة.",
-        date: "15 سبتمبر 1960",
-        category: "التعليم",
+        title: `ترامب بين السياسة والحكم`,
+        text: `لم تحظ زيارة رئاسية في التاريخ المعاصر للمنطقة العربية بمثل ما حظيت
+به زيارة الرئيس الأمريكي .. `,
+        date: "19 سبتمبر  2017",
+        category: "السياسة",
+        slug: "article-details.html?id=8",
       },
       {
-        id: 5,
+        id: 9,
         image: "images/home/img5.jpg",
-        title: "العلاقات الدولية 1960",
-        text: "شهد عام 1960 تحولات كبيرة في العلاقات الدولية مع تغير التحالفات والاستراتيجيات العالمية.",
-        date: "8 أغسطس 1960",
-        category: "العلاقات الدولية",
+        title: `أوزان القوى الإقليمية`,
+        text: ` مر إقليم الشرق الأوسط وشرق المتوسط ومنطقة الخليج العربي بظروف
+صعبة وغير مسبوقة أبرزت إلى حدٍ كبير ...`,
+        date: " 30 يونيو  2017",
+        category: " السياسة",
+        slug: "article-details.html?id=9",
       },
-  
     ],
-    1990: [
-   
+    2019: [
       {
-        id: 2,
+        id: 10,
         image: "images/home/img3.jpg",
-        title: "التطورات الاقتصادية في العالم العربي 1960",
-        text: "شهد العام 1960 تطورات اقتصادية مهمة في المنطقة العربية مع تغير في السياسات الاقتصادية العالمية.",
-        date: "5 نوفمبر 1960",
-        category: "الاقتصاد",
+        title: "المواطنة والأقليات العددية",
+        text: `قصدت متعمدًا أن أقرن الأقليات بكلمة المواطنة فأنا ممن يظنون أن
+الأقليات العرقية والدينية في العالم ..`,
+        date: "16 يونيو 2019",
+        category: "السياسة",
+        slug: "article-details.html?id=10",
       },
-  
+
       {
-        id: 4,
+        id: 11,
         image: "images/home/img5.jpg",
-        title: "التعليم في العالم العربي 1960",
-        text: "شهد عام 1960 تطورات كبيرة في مجال التعليم في العالم العربي مع افتتاح العديد من الجامعات الجديدة.",
-        date: "15 سبتمبر 1960",
-        category: "التعليم",
+        title: "سوريا .. ودول الجوار",
+        text: `سوف تظل سوريا طرفًا في معادلة الاشتباك بين دول الشام الكبير ومركز
+ثقل في صراعات ما نطلق عليه ...`,
+        date: " 28 يوليو 2019",
+        category: "السياسة",
+        slug: "article-details.html?id=11",
       },
-    
-    
+      {
+        id: 12,
+        image: "images/home/img5.jpg",
+        title: `السودان ..وتراكم الأحزان`,
+        text: `في غمار أحداث كارثة غزة منذ أكتوبر 2023 تراجعت مـأساة السودان
+عن تصدر المشهد وأضحت في مرتبة ثانية ....`,
+        date: " 14 يوليو 2019",
+        category: "السياسة",
+        slug: "article-details.html?id=12",
+      },
     ],
-    2000: [
+    2021: [
+      {
+        id: 13,
+        image: "images/home/img2.jpg",
+        title: `نعم للتعددية لا للطائفية`,
+        text: `خلط كثيرٌ من المتخصصين في دراسة المجتمعات والتركيبة البشرية لها
+بين التعددية والطائفية وتوهم ... `,
+        date: " 11 اغسطس 2021   ",
+        category: "السياسة",
+        slug: "article-details.html?id=13",
+      },
+
+      {
+        id: 14,
+        image: "images/home/img1.jpg",
+        title: `نظرة إقليمية حولنا`,
+        text: `مر إقليم الشرق الأوسط وشرق المتوسط ومنطقة الخليج العربي بظروف
+صعبة وغير مسبوقة أبرزت إلى حدٍ ... `,
+        date: " 21 اغسطس 2021   ",
+        category: "السياسة",
+        slug: "article-details.html?id=14",
+      },
+      {
+        id: 15,
+        image: "images/home/img1.jpg",
+        title: `رياح الشام`,
+        text: `يستأثر الشام الكبير أو تعبير &quot;سوريا الكبرى&quot; باهتمام خاص في
+الدراسات الجيوسياسية لمنطقة الشرق الأوسط، ....`,
+        date: " 24 مارس 2021   ",
+        category: "السياسة",
+        slug: "article-details.html?id=15",
+      },
+    ],
+    2023: [
       {
         id: 16,
-        image: "images/home/img2.jpg",
-        title: "الاحتجاجات الشعبية في المنطقة 2000",
-        text: "شهد عام 2000 موجة من الاحتجاجات الشعبية في عدة دول عربية مطالبة بالإصلاح والتغيير.",
-        date: "15 سبتمبر 2000",
+        image: "images/home/img5.jpg",
+        title: `انهيار التراث التاريخي لمظاهر الحضارة الإنسانية`,
+        text: `إن الذي يرقب ما يجري حاليًا على المستويين الدولي والإقليمي لابد أن
+يدرك أن شيئًا ما قد طرأ على العقل البشري، ....`,
+        date: `24 فبراير 2023`,
         category: "السياسة",
+        slug: "article-details.html?id=16",
       },
-  
+      {
+        id: 17,
+        image: "images/home/img4.jpg",
+        title: `الدولة الوطنية والطوائف الدينية`,
+        text: `(يا أيها الناس إنا خلقناكم من ذكر وأنثى وجعلناكم شعوبًا وقبائل لتعارفوا،
+إن أكرمكم عند الله أتقاكم) ...`,
+        date: " 10 مارس 2023   ",
+        category: "السياسة",
+        slug: "article-details.html?id=17",
+      },
       {
         id: 18,
-        image: "images/home/img1.jpg",
-        title: "التحضيرات للعقد الجديد 2000",
-        text: "مع نهاية العقد الأول من الألفية، شهد عام 2000 تحضيرات واستعدادات للعقد الجديد بمختلف تحدياته.",
-        date: "22 يوليو 2000",
-        category: "عام",
-      },
-    ],
-    2010: [
-     {
-        id: 1,
-        image: "images/home/img5.jpg",
-        title: "أحداث فاصلة في صراعات الشرق الأوسط 1960",
-        text: "إن هناك دلالات متميزة ومختلفة لطبيعة ذلك الصراع المزمن والمواقف الدولية والإقليمية منه في عام 1960.",
-        date: "10 ديسمبر 1960",
-        category: "السياسة",
-      },
-      {
-        id: 2,
-        image: "images/home/img4.jpg",
-        title: "التطورات الاقتصادية في العالم العربي 1960",
-        text: "شهد العام 1960 تطورات اقتصادية مهمة في المنطقة العربية مع تغير في السياسات الاقتصادية العالمية.",
-        date: "5 نوفمبر 1960",
-        category: "الاقتصاد",
-      },
-      {
-        id: 3,
         image: "images/home/img3.jpg",
-        title: "مستقبل الطاقة المتجددة في المنطقة 1960",
-        text: "مع تزايد الاهتمام بالطاقة المتجددة، تشهد المنطقة استثمارات كبيرة في هذا القطاع الواعد خلال 1960.",
-        date: "20 أكتوبر 1960",
-        category: "الطاقة",
-      },
-      {
-        id: 4,
-        image: "images/home/img2.jpg",
-        title: "التعليم في العالم العربي 1960",
-        text: "شهد عام 1960 تطورات كبيرة في مجال التعليم في العالم العربي مع افتتاح العديد من الجامعات الجديدة.",
-        date: "15 سبتمبر 1960",
-        category: "التعليم",
-      },
-      {
-        id: 5,
-        image: "images/home/img1.jpg",
-        title: "العلاقات الدولية 1960",
-        text: "شهد عام 1960 تحولات كبيرة في العلاقات الدولية مع تغير التحالفات والاستراتيجيات العالمية.",
-        date: "8 أغسطس 1960",
-        category: "العلاقات الدولية",
-      },
-      {
-        id: 6,
-        image: "images/home/img5.jpg",
-        title: "الثقافة والفنون 1960",
-        text: "شهد عام 1960 نهضة ثقافية وفنية في العالم العربي مع ظهور العديد من المواهب الجديدة.",
-        date: "22 يوليو 1960",
-        category: "الثقافة",
+        title: `غزة مسئولية من؟`,
+        text: `إنه السؤال الأكبر والأهم بل والسؤال الحائر فمع الفاتورة فادحة الثمن
+التي دفعها ويدفعها أهل غزة من دمائهم ونسائهم وأطفالهم ...`,
+        date: `21 ابريل 2023`,
+        category: "السياسة",
+        slug: "article-details.html?id=18",
       },
     ],
     2025: [
-        {
-        id: 1,
+      {
+        id: 19,
         image: "images/home/img4.jpg",
-        title: "أحداث فاصلة في صراعات الشرق الأوسط 1960",
-        text: "إن هناك دلالات متميزة ومختلفة لطبيعة ذلك الصراع المزمن والمواقف الدولية والإقليمية منه في عام 1960.",
-        date: "10 ديسمبر 1960",
+        title: `الأديان والقضية الفلسطينية`,
+        text: `إن أخطر ما واجهته القضية الفلسطينية عبر قرن كامل أو ما يزيد هو
+محاولة تديين الصراع منذ بدايته، ....`,
+        date: "5 مايو 2025",
         category: "السياسة",
+        slug: "article-details.html?id=19",
       },
       {
-        id: 2,
+        id: 20,
         image: "images/home/img3.jpg",
-        title: "التطورات الاقتصادية في العالم العربي 1960",
-        text: "شهد العام 1960 تطورات اقتصادية مهمة في المنطقة العربية مع تغير في السياسات الاقتصادية العالمية.",
-        date: "5 نوفمبر 1960",
-        category: "الاقتصاد",
+        title: `حالة جديدة في الشرق الأوسط`,
+        text: `عوامل متعددة وأحداث صاخبة أدت إلى تغييرات جذرية وتحولات
+واضحة في الهيكل العام للبنية ... `,
+        date: `7 ابريل 2025`,
+        category: "السياسة",
+        slug: "article-details.html?id=20",
       },
       {
-        id: 3,
+        id: 21,
         image: "images/home/img2.jpg",
-        title: "مستقبل الطاقة المتجددة في المنطقة 1960",
-        text: "مع تزايد الاهتمام بالطاقة المتجددة، تشهد المنطقة استثمارات كبيرة في هذا القطاع الواعد خلال 1960.",
-        date: "20 أكتوبر 1960",
-        category: "الطاقة",
+        title: `الندم الإيجابي والدبلوماسية المعاصرة`,
+        text: `كتبت من قبل عن الفارق بين الندم الإيجابي والندم السلبي مؤكدًا أن الندم
+الإيجابي هو أن تندم على ... `,
+        date: " 2 يونيو 2025    ",
+        category: "السياسة",
+        slug: "article-details.html?id=21",
       },
       {
-        id: 4,
+        id: 22,
         image: "images/home/img1.jpg",
-        title: "التعليم في العالم العربي 1960",
-        text: "شهد عام 1960 تطورات كبيرة في مجال التعليم في العالم العربي مع افتتاح العديد من الجامعات الجديدة.",
-        date: "15 سبتمبر 1960",
-        category: "التعليم",
+        title: "الضوء الشاحب في نهاية النفق",
+        text: `إن الذي يتابع ما جرى على الساحة الشرق أوسطية منذ حادث السابع من
+أكتوبر 2023 يدرك ....`,
+        date: " 27 يناير 2025",
+        category: "السياسة",
+        slug: "article-details.html?id=22",
       },
       {
-        id: 5,
+        id: 23,
         image: "images/home/img5.jpg",
-        title: "العلاقات الدولية 1960",
-        text: "شهد عام 1960 تحولات كبيرة في العلاقات الدولية مع تغير التحالفات والاستراتيجيات العالمية.",
-        date: "8 أغسطس 1960",
+        title: `رؤساء أمريكا الذين عاصرتهم`,
+        text: `توافد على البيت الأبيض بواشنطن العديد من الرؤساء بدءًا من الرئيس
+جورج واشنطن وصولاً إلى الرئيس ...`,
+        date: " 10 فبراير 2025",
         category: "العلاقات الدولية",
-      },
-      {
-        id: 6,
-        image: "images/home/img1.jpg",
-        title: "الثقافة والفنون 1960",
-        text: "شهد عام 1960 نهضة ثقافية وفنية في العالم العربي مع ظهور العديد من المواهب الجديدة.",
-        date: "22 يوليو 1960",
-        category: "الثقافة",
+        slug: "article-details.html?id=23",
       },
     ],
   };
 
   // Function to render articles
   function renderArticles(articles) {
-    console.log("Rendering", articles.length, "articles");
     articlesContainer.innerHTML = "";
 
     if (articles.length === 0) {
@@ -295,7 +294,7 @@ $(document).ready(function () {
             <p class="card-text flex-grow-1">${article.text}</p>
             <div class="pt-1 d-flex justify-content-between align-items-center mt-auto">
               <h6 class="mb-0 ">${article.date}</h6>
-              <a href="#" class="btn  d-flex align-items-center justify-content-center  " style="width: 40px; height: 40px;">
+              <a href="${article.slug}" class="btn  d-flex align-items-center justify-content-center  " style="width: 40px; height: 40px;">
                 <i class="fa-solid fa-arrow-left"></i>
               </a>
             </div>
@@ -307,13 +306,9 @@ $(document).ready(function () {
     });
   }
 
-  // Set the default year to show on first load
-  const defaultYear = "1960"; // Change this to whichever year you want to show first
+  const defaultYear = "2013";
 
-  // Initialize with default year articles only
   renderArticles(articlesData[defaultYear] || []);
-
-  // Make sure the correct timeline item is active on page load
   timelineItems.forEach((item) => {
     const year = item.getAttribute("data-year");
     item.classList.remove("active");
@@ -323,27 +318,20 @@ $(document).ready(function () {
     }
   });
 
-  // Add click event to each timeline item
   timelineItems.forEach((item) => {
     item.addEventListener("click", function () {
       console.log("Timeline item clicked:", this.getAttribute("data-year"));
 
-      // Get the year from data attribute
       const year = this.getAttribute("data-year");
 
-      // Remove active class from all items
       timelineItems.forEach((item) => {
         item.classList.remove("active");
       });
 
-      // Add active class to clicked item
       this.classList.add("active");
 
-      // Filter articles based on the year
       let filteredArticles;
       if (year === "all") {
-        // If you want "all" to show all articles, you can implement this
-        // For now, let's keep it showing only specific year articles
         filteredArticles = articlesData[defaultYear] || [];
       } else {
         filteredArticles = articlesData[year] || [];
