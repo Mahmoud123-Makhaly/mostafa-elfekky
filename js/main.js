@@ -1,4 +1,3 @@
-
 // home page logic
 // navbar scroll
 const navbar = document.querySelector(".navbar");
@@ -28,9 +27,8 @@ $(document).ready(function () {
       0: { items: 1 },
     },
     navText: [
-      // Use this array to set custom icons
-      '<i class="fa-solid fa-arrow-right"></i>', // This will be the "next" button in RTL
-      '<i class="fa-solid fa-arrow-left"></i>', // This will be the "previous" button in RTL
+      '<i class="fa-solid fa-arrow-right"></i>', 
+      '<i class="fa-solid fa-arrow-left"></i>', 
     ],
     dots: false,
   });
@@ -47,9 +45,8 @@ $(document).ready(function () {
       1200: { items: 4 },
     },
     navText: [
-      // Use this array to set custom icons
-      '<i class="fa-solid fa-arrow-right"></i>', // This will be the "next" button in RTL
-      '<i class="fa-solid fa-arrow-left"></i>', // This will be the "previous" button in RTL
+      '<i class="fa-solid fa-arrow-right"></i>', 
+      '<i class="fa-solid fa-arrow-left"></i>',
     ],
     dots: false,
   });
@@ -60,7 +57,7 @@ $(".programs-carousel").owlCarousel({
   margin: 20,
   nav: true,
   dots: true,
-  merge: true, // Enable the merge functionality
+  merge: true,
   responsive: {
     0: {
       items: 1,
@@ -93,14 +90,13 @@ $(document).ready(function () {
       991: { items: 3 },
     },
     navText: [
-      // Use this array to set custom icons
-      '<i class="fa-solid fa-arrow-right"></i>', // This will be the "next" button in RTL
-      '<i class="fa-solid fa-arrow-left"></i>', // This will be the "previous" button in RTL
+      '<i class="fa-solid fa-arrow-right"></i>', 
+      '<i class="fa-solid fa-arrow-left"></i>', 
     ],
     dots: false,
   });
 });
-// search bar logic - Fixed version
+// search bar logic 
 document.addEventListener("DOMContentLoaded", function () {
   const pages = [
     "programmes.html",
@@ -108,7 +104,6 @@ document.addEventListener("DOMContentLoaded", function () {
     "books.html",
     "book-details.html",
     "articles.html",
-    "article-details.html",
     "about.html",
   ];
 
@@ -118,7 +113,6 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector(".fa-magnifying-glass").parentElement;
   let searchResults = document.getElementById("searchResults");
 
-  // Create search results container if it doesn't exist
   if (!searchResults) {
     searchResults = document.createElement("div");
     searchResults.id = "searchResults";
@@ -127,21 +121,29 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector("nav").appendChild(searchResults);
   }
 
-  // Function to check if text contains Arabic characters
   function isArabic(text) {
-    // Arabic Unicode range: \u0600-\u06FF
+   
     const arabicRegex = /[\u0600-\u06FF]/;
     return arabicRegex.test(text);
   }
 
+  function normalizeArabic(text) {
+    if (!text) return "";
+    return text
+      .replace(/[\u064B-\u065F]/g, "") 
+      .replace(/أ|إ|آ/g, "ا") 
+      .replace(/ة/g, "ه") 
+      .replace(/\s+/g, " ") 
+      .trim()
+      .toLowerCase();
+  }
+
   searchInput.addEventListener("input", function () {
-    let query = searchInput.value.toLowerCase();
+    let query = searchInput.value.trim();
     if (query.length > 0) {
-      // Check if query contains Arabic characters
       if (isArabic(query)) {
         performSearch(query);
       } else {
-        // Show "no results" for non-Arabic text
         showNoArabicResults();
       }
     } else {
@@ -152,30 +154,25 @@ document.addEventListener("DOMContentLoaded", function () {
   searchInput.addEventListener("keypress", function (event) {
     if (event.key === "Enter") {
       event.preventDefault();
-      let query = searchInput.value.toLowerCase();
+      let query = searchInput.value.trim();
       if (query.length > 0) {
-        // Check if query contains Arabic characters
         if (isArabic(query)) {
           searchInAllPages(query);
         } else {
-          // Show "no results" for non-Arabic text
           showNoArabicResults();
         }
       }
     }
   });
 
-  // Make sure search button exists and add event listener
   if (searchButton) {
     searchButton.addEventListener("click", function (event) {
       event.preventDefault();
-      let query = searchInput.value.toLowerCase();
+      let query = searchInput.value.trim();
       if (query.length > 0) {
-        // Check if query contains Arabic characters
         if (isArabic(query)) {
           searchInAllPages(query);
         } else {
-          // Show "no results" for non-Arabic text
           showNoArabicResults();
         }
       } else {
@@ -184,7 +181,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Function to show "no results" for non-Arabic text
   function showNoArabicResults() {
     searchResults.innerHTML = "";
     let noArabicItem = document.createElement("div");
@@ -196,60 +192,140 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   async function performSearch(query) {
-    // Double check if query is Arabic
     if (!isArabic(query)) {
       showNoArabicResults();
       return;
     }
 
     let results = [];
+
+    if (typeof window.articlesContent !== "undefined") {
+      console.log("Searching in articles:", window.articlesContent.length);
+      results = results.concat(searchInArticles(query));
+      console.log("Articles results found:", results.length);
+    } else {
+      console.warn("window.articlesContent is not defined");
+    }
+
     for (let page of pages) {
       try {
         let content = await fetchPageContent(page);
         let pageResults = searchInContent(query, content, page);
         results = results.concat(pageResults);
-
-        // Show first few results immediately
-        if (results.length > 0) {
-          displayQuickResults(results.slice(0, 3), query);
-        }
       } catch (error) {
         console.error("Error searching page:", page, error);
       }
     }
 
-    // If no results found after searching all pages
-    if (results.length === 0) {
+    console.log("Total results found:", results.length);
+
+    if (results.length > 0) {
+      displayQuickResults(results.slice(0, 5), query);
+    } else {
       displayQuickResults([], query);
     }
+  }
+
+  // Function to search in articles
+  function searchInArticles(query) {
+    let results = [];
+    const articles = window.articlesContent || [];
+
+    if (articles.length === 0) {
+      console.warn("No articles available for search");
+      return results;
+    }
+
+    const normalizedQuery = normalizeArabic(query);
+
+    articles.forEach((article, index) => {
+      if (!article || !article.content) {
+        console.warn("Invalid article at index:", index);
+        return;
+      }
+
+      const normalizedContent = normalizeArabic(article.content);
+      const normalizedTitle = normalizeArabic(article.title);
+
+      if (normalizedContent.includes(normalizedQuery)) {
+        let searchIndex = normalizedContent.indexOf(normalizedQuery);
+
+        let originalContent = article.content;
+        let start = Math.max(0, searchIndex - 50);
+        let end = Math.min(originalContent.length, searchIndex + 150);
+        let context = originalContent.substring(start, end);
+
+        if (start > 0) context = "..." + context;
+        if (end < originalContent.length) context = context + "...";
+
+        const queryWords = query.split(" ");
+        queryWords.forEach((word) => {
+          if (word.length > 2) {
+            const regex = new RegExp(word, "gi");
+            context = context.replace(
+              regex,
+              (match) => `<mark>${match}</mark>`
+            );
+          }
+        });
+
+        results.push({
+          context: context,
+          url: article.url,
+          title: article.title,
+        });
+      }
+
+      if (normalizedTitle.includes(normalizedQuery)) {
+        const alreadyAdded = results.some((r) => r.url === article.url);
+        if (!alreadyAdded) {
+          results.push({
+            context: article.content.substring(0, 100) + "...",
+            url: article.url,
+            title: article.title,
+          });
+        }
+      }
+    });
+
+    console.log("Found in articles:", results.length);
+    return results;
   }
 
   function searchInContent(query, { content, title }, pageUrl) {
     let results = [];
     if (!content) return results;
 
-    let lowerCaseContent = content.toLowerCase();
-    let index = lowerCaseContent.indexOf(query);
+    const normalizedQuery = normalizeArabic(query);
+    const normalizedContent = normalizeArabic(content);
 
-    while (index !== -1) {
+    let index = normalizedContent.indexOf(normalizedQuery);
+
+    while (index !== -1 && results.length < 3) {
       let start = Math.max(0, index - 50);
-      let end = Math.min(content.length, index + 50 + query.length);
+      let end = Math.min(content.length, index + 150);
       let context = content.substring(start, end);
 
-      // Add ellipsis if we're not at the beginning
       if (start > 0) context = "..." + context;
       if (end < content.length) context = context + "...";
 
+      const queryWords = query.split(" ");
+      queryWords.forEach((word) => {
+        if (word.length > 2) {
+          const regex = new RegExp(word, "gi");
+          context = context.replace(regex, (match) => `<mark>${match}</mark>`);
+        }
+      });
+
       results.push({
-        context: context.replace(
-          new RegExp(query, "gi"),
-          (match) => `<mark>${match}</mark>`
-        ),
+        context: context,
         url: pageUrl,
         title: title || pageUrl,
       });
-      index = lowerCaseContent.indexOf(query, index + 1);
+
+      index = normalizedContent.indexOf(normalizedQuery, index + 1);
     }
+
     return results;
   }
 
@@ -264,23 +340,24 @@ document.addEventListener("DOMContentLoaded", function () {
         // Remove unwanted sections
         const footer = tempElement.querySelector("footer");
         if (footer) footer.remove();
-
         const copyrightSection = tempElement.querySelector(".copyright");
         if (copyrightSection) copyrightSection.remove();
-
         const navbar = tempElement.querySelector("nav");
         if (navbar) navbar.remove();
+        const searchResultsDiv = tempElement.querySelector("#searchResults");
+        if (searchResultsDiv) searchResultsDiv.remove();
 
         const title =
           tempElement.querySelector(".banner-title")?.textContent ||
+          tempElement.querySelector("h1")?.textContent ||
           tempElement.querySelector("title")?.textContent ||
           url;
 
-        return { content: tempElement.textContent || "", title };
-      } else {
-        console.error("Failed to fetch content from", url);
-        return { content: "", title: "Error" };
+        return { content: tempElement.textContent || "", title: title.trim() };
       }
+
+      console.error("Failed to fetch content from", url);
+      return { content: "", title: "Error" };
     } catch (error) {
       console.error("Error fetching content from", url, error);
       return { content: "", title: "Error" };
@@ -296,7 +373,18 @@ document.addEventListener("DOMContentLoaded", function () {
       noDataItem.innerHTML = "<p class='mb-0'>لا توجد نتائج للبحث</p>";
       searchResults.appendChild(noDataItem);
     } else {
+      // Remove duplicates based on URL
+      const uniqueResults = [];
+      const seenUrls = new Set();
+
       results.forEach((result) => {
+        if (!seenUrls.has(result.url)) {
+          seenUrls.add(result.url);
+          uniqueResults.push(result);
+        }
+      });
+
+      uniqueResults.forEach((result) => {
         let item = document.createElement("div");
         item.className = "result-item p-3 border-bottom";
         item.innerHTML = `
@@ -307,19 +395,15 @@ document.addEventListener("DOMContentLoaded", function () {
         searchResults.appendChild(item);
       });
 
-      // Add "View all results" link with click handler
       let viewAllItem = document.createElement("div");
       viewAllItem.className = "result-item p-3";
-      viewAllItem.innerHTML = `<a href="#" class="small view-all-results">عرض كل النتائج</a>`;
+      viewAllItem.innerHTML = `<a href="#" class="small view-all-results">عرض كل النتائج (${uniqueResults.length})</a>`;
       searchResults.appendChild(viewAllItem);
 
-      // Add event listener to the "View all results" link
       const viewAllLink = viewAllItem.querySelector(".view-all-results");
       viewAllLink.addEventListener("click", function (e) {
         e.preventDefault();
-        // Store the current query
         sessionStorage.setItem("searchQuery", query);
-        // Navigate to search page
         searchInAllPages(query);
       });
     }
@@ -328,25 +412,23 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   async function searchInAllPages(query) {
-    // Double check if query is Arabic before searching all pages
     if (!isArabic(query)) {
-      // Store empty results for non-Arabic search
       sessionStorage.setItem("searchResults", JSON.stringify([]));
       sessionStorage.setItem("searchQuery", query);
       sessionStorage.setItem("searchError", "nonArabic");
 
-      // Clear the search input
       searchInput.value = "";
-
-      // Hide the quick results
       searchResults.classList.add("d-none");
-
-      // Navigate to search page
       window.location.href = "search.html";
       return;
     }
 
     let results = [];
+
+    if (typeof window.articlesContent !== "undefined") {
+      results = results.concat(searchInArticles(query));
+    }
+
     for (let page of pages) {
       try {
         let content = await fetchPageContent(page);
@@ -356,30 +438,23 @@ document.addEventListener("DOMContentLoaded", function () {
         console.error("Error searching page:", page, error);
       }
     }
+
     displayAllResults(results, query);
   }
 
   function displayAllResults(results, query) {
-    // Store both results and query
     sessionStorage.setItem("searchResults", JSON.stringify(results));
     sessionStorage.setItem("searchQuery", query);
 
-    // Clear the search input
     searchInput.value = "";
-
-    // Hide the quick results
     searchResults.classList.add("d-none");
-
-    // Navigate to search page
     window.location.href = "search.html";
   }
 });
-
 //  youtube video controls
 
 let players = [];
 
-// Initialize YouTube API players
 function onYouTubeIframeAPIReady() {
   const iframes = document.querySelectorAll(".video-container iframe");
   iframes.forEach((iframe, i) => {

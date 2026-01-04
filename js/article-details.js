@@ -1,8 +1,9 @@
+window.articlesContent = window.articlesContent || [];
 const articles = [
   {
     id: 1,
     title: "أوهام صهيونية . وأحلام عبثية",
-    date: " 25 اغسطس 2013", 
+    date: " 25 اغسطس 2013",
     category: "السياسة",
     image: "images/articles/fire.jpg",
     excerpt: `<p class="desc mt-3 mt-lg-4">(دولتك يا إسرائيل من الفرات إلى النيل) ليست هذه عبارة جديدة، بل قد ترددت منذ عدة عقود عندما تحدث غلاة الصهاينة عن مشروع الدولة اليهودية في فلسطين وامتداداتها لتشمل معظم مناطق الشرق الأوسط بحيث نكتشف في النهاية أننا أمام امبراطورية يهودية بديلاً للدولة العربية الواحدة أو الكيان الإسلامي العربي المستقل، وأود أن أشدد في البداية على أن دولة إسرائيل المسيطرة على الأراضي المقدسة ليست بحال من الأحوال وعدًا إلهيّا كما يزعم غلاة اليهود منذ انعقاد مؤتمر بازل بجهود تيودور هرتزل ورفاقه من الآباء المؤسسين للحركة الصهيونية الحديثة كما عرفناها قبل قيام دولة إسرائيل وبعد إعلانها باعتراف دول وقع أصحابها ضحية مفاهيم مغلوطة بدءًا من الوعود الدينية وصولاً إلى وعد بلفور الذي أعطى فيه من لا يملك ما لا يستحق على حد التعبير الشائع في حينه، وأود أن أسجل هنا عددًا من الملاحظات المرتبطة بهذا الطرح العبثي الذي تردده إسرائيل ومتطرفيها الجدد وعلى رأسهم بنيامين نتنياهو رئيس الوزراء وداعية العنف وزعيم التشدد وراعي التطرف الديني واليمني على نحو غير مسبوق، هذه الملاحظات هي:</p>`,
@@ -2966,3 +2967,17 @@ if (article) {
     imgContainer.insertAdjacentHTML("afterend", article.content);
   }
 }
+// Export articles for search functionality
+window.articlesContent = articles.map((article) => {
+  const stripHtml = (html) => {
+    const tmp = document.createElement("div");
+    tmp.innerHTML = html;
+    return tmp.textContent || tmp.innerText || "";
+  };
+
+  return {
+    title: article.title,
+    content: stripHtml(article.content) + " " + stripHtml(article.excerpt),
+    url: `article-details.html?id=${article.id}`,
+  };
+});
