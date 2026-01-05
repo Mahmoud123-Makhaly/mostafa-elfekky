@@ -94,3 +94,9 @@
 .programmes .pagination .page-link:focus {
   box-shadow: none;
 }
+.programmes .video-container {
+  margin-bottom: 3rem;
+}
+.programmes .video-container h6 {
+  color: rgba(68, 74, 97, 1);
+}

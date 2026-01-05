@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Content data for each year
   const contentData = {
     1965: {
-      image: "../images/home/v4.jfif",
+      image: "../images/about/1965.jfif",
       desc1: `
         <h6 class="fw-bold">المؤهلات العلمية</h6>
         <p style="font-size: 15px;margin-bottom: .5rem">1966: بكالوريوس العلوم السياسية، كلية الاقتصاد والعلوم السياسية، جامعة القاهرة</p>
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
       desc2: "", // Empty for this year since all content is in desc1
     },
     1975: {
-      image: "../images/home/v5.jfif",
+      image: "../images/about/1975.jfif",
       desc1: `
     <h6 class="fw-bold">المؤهلات العلمية</h6>
     <p style="font-size: 15px;margin-bottom: .5rem">1977: دكتوراه الفلسفة في العلوم السياسية - كلية الدراسات الشرقية والإفريقية SOAS، جامعة لندن (رسالة الدكتوراه: الأقباط في السياسة المصرية)</p>
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
       desc2: "",
     },
     1985: {
-      image: "../images/home/v6.jfif",
+      image: "../images/about/1985.jfif",
       desc1: `
     <h6 class="fw-bold">المناصب الرئاسية والتنفيذية</h6>
     <p style="font-size: 15px;margin-bottom: .5rem">يوليو 1985 - أكتوبر 1992: سكرتير رئيس جمهورية مصر العربية للمعلومات والمتابعة، ثم رئيس مكتب المعلومات والمتابعة برئاسة الجمهورية</p>
@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
   `,
     },
     1995: {
-      image: "../images/home/v7.jfif",
+      image: "../images/about/1995.jfif",
       desc1: `
     <h6 class="fw-bold">المناصب الدبلوماسية</h6>
     <p style="font-size: 15px;margin-bottom: .5rem">1995: سفير بالخارجية المصرية</p>
@@ -178,7 +178,7 @@ document.addEventListener("DOMContentLoaded", function () {
     },
 
     2005: {
-      image: "../images/home/v8.jfif",
+      image: "../images/about/2005.jfif",
       desc1: `
     <h6 class="fw-bold">المناصب الأكاديمية والرئاسية (2005-2014)</h6>
     <p style="font-size: 15px;margin-bottom: .5rem">فبراير 2005 - إبريل 2008: أول رئيس للجامعة البريطانية في مصر</p>
@@ -233,7 +233,7 @@ document.addEventListener("DOMContentLoaded", function () {
   `,
     },
     2015: {
-      image: "../images/home/v30.jfif",
+      image: "../images/about/2015.jfif",
       desc1: `
     <h6 class="fw-bold">الإصدارات والكتب (2015-2024)</h6>
     <p style="font-size: 15px;margin-bottom: .5rem">2015: سنوات الفرص الضائعة (دار نهضة مصر)</p>
@@ -296,7 +296,7 @@ document.addEventListener("DOMContentLoaded", function () {
   `,
     },
     2025: {
-      image: "../images/home/v24.jfif",
+      image: "../images/about/2025.jfif",
       desc1: `
     <h6 class="fw-bold">الأنشطة الأكاديمية والبحثية المستمرة (2025)</h6>
     <p style="font-size: 15px;margin-bottom: .5rem">ناقش وأشرف على أكثر من 40 رسالة جامعية للدكتوراه والماجستير في جامعات مصرية مختلفة</p>
