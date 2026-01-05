@@ -100,7 +100,7 @@ $(document).ready(function () {
 document.addEventListener("DOMContentLoaded", function () {
   const pages = [
     "programmes.html",
-    "Home.html",
+    "index.html",
     "books.html",
     "book-details.html",
     "articles.html",
