@@ -233,7 +233,7 @@ document.addEventListener("DOMContentLoaded", function () {
   `,
     },
     2015: {
-      image: "../images/about/2015.jfif",
+      image: "../images/home/v16.jfif",
       desc1: `
     <h6 class="fw-bold">الإصدارات والكتب (2015-2024)</h6>
     <p style="font-size: 15px;margin-bottom: .5rem">2015: سنوات الفرص الضائعة (دار نهضة مصر)</p>
@@ -296,7 +296,7 @@ document.addEventListener("DOMContentLoaded", function () {
   `,
     },
     2025: {
-      image: "../images/about/2025.jfif",
+      image: "../images/about/2015.jfif",
       desc1: `
     <h6 class="fw-bold">الأنشطة الأكاديمية والبحثية المستمرة (2025)</h6>
     <p style="font-size: 15px;margin-bottom: .5rem">ناقش وأشرف على أكثر من 40 رسالة جامعية للدكتوراه والماجستير في جامعات مصرية مختلفة</p>

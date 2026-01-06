@@ -1,12 +1,11 @@
-// Wait for DOM to be fully loaded
 $(document).ready(function () {
-  // Get all timeline items
   const timelineItems = document.querySelectorAll(
     ".new-articles .timeline-item"
   );
   const articlesContainer = document.getElementById("articles-container");
+  const searchInput = document.querySelector(".form-container input");
+  const searchButton = document.querySelector(".form-container button");
 
-  // Check if elements exist
   if (!timelineItems.length) {
     console.error("No timeline items found");
     return;
@@ -19,7 +18,8 @@ $(document).ready(function () {
 
   console.log("Found", timelineItems.length, "timeline items");
 
-  // Articles data for each year
+  let currentYear = "2013";
+
   const articlesData = {
     2013: [
       {
@@ -96,7 +96,6 @@ $(document).ready(function () {
         category: "السياسة",
         slug: "article-details.html?id=7",
       },
-
       {
         id: 8,
         image: "images/home/img1.jpg",
@@ -129,7 +128,6 @@ $(document).ready(function () {
         category: "السياسة",
         slug: "article-details.html?id=10",
       },
-
       {
         id: 11,
         image: "images/home/img5.jpg",
@@ -162,7 +160,6 @@ $(document).ready(function () {
         category: "السياسة",
         slug: "article-details.html?id=13",
       },
-
       {
         id: 14,
         image: "images/home/img1.jpg",
@@ -270,14 +267,38 @@ $(document).ready(function () {
     ],
   };
 
-  // Function to render articles
+  function searchArticles(searchTerm) {
+    if (!searchTerm.trim()) {
+      return { articles: articlesData[currentYear] || [], year: null };
+    }
+
+    const term = searchTerm.toLowerCase().trim();
+
+    let allArticles = [];
+    let foundYear = null;
+
+    Object.keys(articlesData).forEach((year) => {
+      const yearArticles = articlesData[year].filter((article) => {
+        return article.title.toLowerCase().includes(term);
+      });
+
+      if (yearArticles.length > 0 && !foundYear) {
+        foundYear = year; 
+      }
+
+      allArticles = allArticles.concat(yearArticles);
+    });
+
+    return { articles: allArticles, year: foundYear };
+  }
+
   function renderArticles(articles) {
     articlesContainer.innerHTML = "";
 
     if (articles.length === 0) {
       articlesContainer.innerHTML = `
         <div class="col-12 text-center py-5">
-          <p class="text-muted">لا توجد مقالات لهذا العام</p>
+          <p class="text-muted fs-5">لا توجد مقالات مطابقة للبحث</p>
         </div>
       `;
       return;
@@ -306,7 +327,62 @@ $(document).ready(function () {
     });
   }
 
+  function updateTimelineYear(year) {
+    if (!year) return;
+
+    timelineItems.forEach((item) => {
+      item.classList.remove("active");
+      if (item.getAttribute("data-year") === year) {
+        item.classList.add("active");
+      }
+    });
+
+    currentYear = year;
+  }
+
+  if (searchButton) {
+    searchButton.addEventListener("click", function (e) {
+      e.preventDefault();
+      const searchTerm = searchInput.value;
+      const result = searchArticles(searchTerm);
+
+      if (result.year) {
+        updateTimelineYear(result.year);
+      }
+
+      renderArticles(result.articles);
+    });
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener("keypress", function (e) {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        const searchTerm = searchInput.value;
+        const result = searchArticles(searchTerm);
+
+        if (result.year) {
+          updateTimelineYear(result.year);
+        }
+
+        renderArticles(result.articles);
+      }
+    });
+
+    searchInput.addEventListener("input", function () {
+      const searchTerm = searchInput.value;
+      const result = searchArticles(searchTerm);
+
+      if (result.year) {
+        updateTimelineYear(result.year);
+      }
+
+      renderArticles(result.articles);
+    });
+  }
+
   const defaultYear = "2013";
+  currentYear = defaultYear;
 
   renderArticles(articlesData[defaultYear] || []);
   timelineItems.forEach((item) => {
@@ -324,21 +400,13 @@ $(document).ready(function () {
 
       const year = this.getAttribute("data-year");
 
-      timelineItems.forEach((item) => {
-        item.classList.remove("active");
-      });
+      updateTimelineYear(year);
 
-      this.classList.add("active");
-
-      let filteredArticles;
-      if (year === "all") {
-        filteredArticles = articlesData[defaultYear] || [];
-      } else {
-        filteredArticles = articlesData[year] || [];
+      if (searchInput) {
+        searchInput.value = "";
       }
 
-      // Render filtered articles
-      renderArticles(filteredArticles);
+      renderArticles(articlesData[year] || []);
     });
   });
 

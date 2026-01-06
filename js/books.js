@@ -5,40 +5,36 @@ document.addEventListener("DOMContentLoaded", function () {
   const searchInput = document.querySelector(".form-container input");
   const searchButton = document.querySelector(".form-container button");
 
-  const slidesPerPage = 1;
+  const booksPerPage = 3; // Number of books to show per page
   let currentPage = 1;
-  let filteredSlides = Array.from(slides);
+  let allBooks = [];
+  let filteredBooks = [];
+
+  // Collect all books from all slides
+  slides.forEach((slide) => {
+    const books = slide.querySelectorAll(".book");
+    books.forEach((book) => {
+      const bookWrapper = book.closest(".col-md-6, .col-lg-4");
+      allBooks.push({
+        element: bookWrapper,
+        title: book.querySelector("h3")?.textContent.toLowerCase() || "",
+      });
+    });
+  });
+
+  filteredBooks = [...allBooks];
 
   function searchBooks(query) {
     const searchTerm = query.trim().toLowerCase();
 
     if (searchTerm === "") {
-      filteredSlides = Array.from(slides);
-      slides.forEach((slide) => (slide.style.display = "flex"));
+      // Show all books when search is cleared
+      filteredBooks = [...allBooks];
     } else {
-      filteredSlides = Array.from(slides).filter((slide) => {
-        const books = slide.querySelectorAll(".book");
-        let hasMatch = false;
-
-        books.forEach((book) => {
-          const title =
-            book.querySelector("h3")?.textContent.toLowerCase() || "";
-
-          if (title.includes(searchTerm)) {
-            hasMatch = true;
-          }
-        });
-
-        return hasMatch;
-      });
-
-      slides.forEach((slide) => {
-        if (filteredSlides.includes(slide)) {
-          slide.style.display = "flex";
-        } else {
-          slide.style.display = "none";
-        }
-      });
+      // Filter books by search term
+      filteredBooks = allBooks.filter((book) =>
+        book.title.includes(searchTerm)
+      );
     }
 
     currentPage = 1;
@@ -46,11 +42,13 @@ document.addEventListener("DOMContentLoaded", function () {
     showPage(1);
   }
 
+  // Search on button click
   searchButton.addEventListener("click", function (e) {
     e.preventDefault();
     searchBooks(searchInput.value);
   });
 
+  // Search on Enter key
   searchInput.addEventListener("keypress", function (e) {
     if (e.key === "Enter") {
       e.preventDefault();
@@ -58,15 +56,19 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  // Search while typing (input event)
   searchInput.addEventListener("input", function () {
     searchBooks(this.value);
   });
 
   function renderPagination() {
     paginationList.innerHTML = "";
-    const totalPages = Math.max(1, filteredSlides.length);
+    const totalPages = Math.max(
+      1,
+      Math.ceil(filteredBooks.length / booksPerPage)
+    );
 
-    if (filteredSlides.length === 0) {
+    if (filteredBooks.length === 0) {
       pageInfo.textContent = "لا توجد نتائج مطابقة للبحث";
       return;
     }
@@ -121,17 +123,34 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function showPage(page) {
-    const totalPages = filteredSlides.length;
+    const totalPages = Math.ceil(filteredBooks.length / booksPerPage);
 
+    // Hide all slides and books first
     slides.forEach((slide) => (slide.style.display = "none"));
-
-    filteredSlides.forEach((slide, index) => {
-      slide.style.display =
-        index >= (page - 1) * slidesPerPage && index < page * slidesPerPage
-          ? "flex"
-          : "none";
+    allBooks.forEach((book) => {
+      book.element.style.display = "none";
     });
 
+    // Calculate which books to show on this page
+    const startIndex = (page - 1) * booksPerPage;
+    const endIndex = startIndex + booksPerPage;
+    const booksToShow = filteredBooks.slice(startIndex, endIndex);
+
+    // Show only the filtered books for current page
+    if (booksToShow.length > 0) {
+      // Get the parent slide of the first book to show
+      const parentSlide = booksToShow[0].element.closest(".slide");
+      if (parentSlide) {
+        parentSlide.style.display = "flex";
+      }
+
+      // Show each book
+      booksToShow.forEach((book) => {
+        book.element.style.display = "block";
+      });
+    }
+
+    // Update pagination active state
     paginationList
       .querySelectorAll(".page-item")
       .forEach((li) => li.classList.remove("active"));
@@ -140,6 +159,7 @@ document.addEventListener("DOMContentLoaded", function () {
     );
     if (currentBtn) currentBtn.classList.add("active");
 
+    // Update navigation buttons state
     const buttons = paginationList.children;
     if (buttons.length > 0) {
       const [first, prev] = buttons;
@@ -163,7 +183,9 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
 
-    pageInfo.textContent = `ظهور من ${page} الى ${totalPages} من المدخلات`;
+    const displayStart = startIndex + 1;
+    const displayEnd = Math.min(endIndex, filteredBooks.length);
+    pageInfo.textContent = `ظهور من ${displayStart} الى ${displayEnd} من ${filteredBooks.length} مدخلات`;
     currentPage = page;
   }
 
