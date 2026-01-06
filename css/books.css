@@ -138,9 +138,13 @@
   padding: 10px 2rem;
 }
 .best-seller .content a {
-  color: rgba(68, 74, 97, 1);
+  color: rgba(255, 255, 255, 0.8);
   font-size: 18px;
   font-weight: 700;
+  transition: 0.3s all ease;
+}
+.best-seller .content a:hover {
+  color: rgba(255, 255, 255, 1);
 }
 .best-seller .owl-prev i,
 .best-seller .owl-next i {
